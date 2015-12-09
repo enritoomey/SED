@@ -1,0 +1,70 @@
+\documentclass[a4paper]{article}
+\usepackage[english]{babel}
+\usepackage{enumitem}
+\usepackage{mathrsfs}
+\begin{document}
+\begin{enumerate}[label=\emph{\alph*)}]
+  \item
+    \begin{itemize}[label=\textbullet]
+      \item ECI:
+	\begin{itemize}
+	  \item Plane: Equatorial plane.
+	  \item Origin: earth center of mass.
+	  \item Axes pointing: x vernal equinox, z earth rotation axes.
+	\end{itemize}
+      \item Perifocal:
+	\begin{itemize}
+	  \item Plane: orbit plane
+	  \item Origin: orbit focal point
+	  \item Axes pointing: x focal to periasis, z normal to orbit.
+	\end{itemize}
+      \item ECEF:
+	\begin{itemize}
+	  \item plane: ecliptic plane 
+	  \item origin: earth center of mass.
+	  \item axes pointing: x intersection between greenwitch latitud  and equator plane
+	\end{itemize}
+      \item RTN:
+	\begin{itemize}
+	  \item plane: orbit plane
+	  \item origin: satellite
+	  \item axes pointing: x = r(position), y = v(velocity)
+	\end{itemize}
+      \item Polar rotation coordinates:
+	\begin{itemize}
+	  \item plane: ecliptic plane
+	  \item origin:
+	  \item axes pointing:
+	\end{itemize}
+    \end{itemize}
+  \item The assumptions behind the restricted earth two body problem are that the secondary mass is negligible compared to m1, and that m1 has a perctly spherical gravitational field. There's no external forces.
+  \item Fundamental orbital differential equations:
+    \[\ddot{\vec{r}}+\mu\frac{\vec{r}}{r^3}=0\]
+    Polar coordinate solution:
+    \[r = \frac{p}{1+e\cdot\cos{f}} \qquad \textrm{with:}\]
+    \[p = \frac{h^2}{\mu},~~ e=\sqrt{1+\frac{2e h^2}{\mu^2}} ~~ \textrm{and} ~~ f=\theta-\omega\]
+    
+  \item To derive the solution in inertial coordinates first we construct the position vector in the perifocal axis:
+    \[[r]_{\mathscr{P}}=[r\cos{f};r\sin{f};0] = []\]
+  Then, we use the three orbit parameters that define the orbit in the inertial frame to rotate the position vector define in the pericoal axis to the inertial axis:
+ % \[[r]_{\mathscr{I}} = {T}_{\mathscr{P}}^{\mathscr{I}}~(\omega,i,\Omega) ~ [r]_{\mathscr{P}\]
+  
+  \item (answer afterwards)
+    
+  \item The true anomaly $f$  or the mean anomaly $M$
+    
+  \item Angular momentum and energy.
+    
+  \item Yes, for certain orbits the solutions becomes singular (for example, ciruclar orbits -e=0-, or equatorial orbits)
+   
+  \item
+    \[\vec{r} = 2 \hat{i}\]
+    \[\vec{v} = \frac{-1}{\sqrt{2}}+\frac{1}{\sqrt{2}}\hat{j}\]
+    \[\vec{h} = \vec{r} \times \vec{v}= \frac{2}{\sqrt{2}}\hat{k} \rightarrow ~ h ~ \textrm{is aligned with Earth's rotating axis, so the orbit is equatorial.}\]
+    To evaluate if the orbit is circular, elliptical, parabolic or hyperbolic we check the value of $E$:
+    \[E = -\frac{\mu}{2a} = \frac{v^2}{2}-\frac{\mu}{r} = \frac{1}{2} - \frac{1}{2} = 0 \quad \rightarrow \quad \textrm{The orbit is parabolic.}\]
+
+\end{enumerate}
+
+\end{document}
+

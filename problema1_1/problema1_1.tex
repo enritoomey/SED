@@ -1,0 +1,69 @@
+%        File: problema1_1.txt
+%     Created: Tue Nov 17 06:00 AM 2015 A
+% Last Change: Tue Nov 17 06:00 AM 2015 A
+%
+\documentclass[a4paper]{article}
+\usepackage[english,spanish]{babel}
+\usepackage{enumitem}
+
+\begin{document}
+\begin{enumerate}[label=\emph{\alph*)},series=preguntas1_1]
+  \item The main three application areas of distributed space system are:
+  \begin{itemize}
+    \item Space Science (Solar system exploration, Astronomical search of origins)
+    \item Planetary science (synthetic aperture radar interferometru, gravity mapping, etc.)
+    \item Technology (On orbit servicing and assembly, Humman exploration technology)
+  \end{itemize}
+  One key specific aplication where breakthroughts are expected in the near future is space debris elimination.
+  \item We can distinguish four different distributed space system's  mission architectures according to the inter-satellite distance adn required control accuracy:
+  \begin{itemize}
+    \item In the lowest inter-satellite distance and highest accuracy required, we have Rendezvous and docking.
+    \item In the largest inter-satellite distance and least accuracy required we have constellations, such as GNPS.
+    \item In between Rendevous adn Constellations, we have a broad band of mission architectures grouped under the Formation flying mission architecture.
+    \item Least of all, we have swarm and fractionated spacecraft mission architecture, requiring low control accuracy for a wide band of inter-satellite dintances.
+  \end{itemize}
+
+  \item The key differences between historic, contemporary, and future distributed space systems are that historically, misions where generously founded, ment for short duration, and control was always made from gound (no autonomous navigation). Nowadays missions are ment to be long-duration, cost-efficient and autonomous. Future distributed space system will tend towards miniaturization and standarizartion, using off the shell hardware and easily replacesable technology in order to keep on track with a fast technological development. So we can say that we are going from bigand expensive to small and cost-effective, from ground-control to autonomous, and from a single standalone satellite conception to a .... (complete with something smart :p).
+
+  \item Past distributed space system missions:
+    \begin{enumerate}[label=\arabic*., series=pregunta4]
+      \setlist[enumerate]{resume}
+      \item Apollo mission with its lunar module docking manouver.
+      \item (More recently) Tamdem-X mission using two SAR satellites in order to build a 3D model of earth.
+    \end{enumerate}
+
+    Upcomming missions:
+    \begin{enumerate}[resume*=pregunta4]
+      \item New world observatory: use un combination a telescope satellite and a shield satellite which will cast the shadow of a star to the telescope, making the second one able to watch planets around the star, that they would be otherwise obscured by the star ligth.
+      \item Earth observations constellations using low-earth orbit satellite which would communicate between themselves in order to achive earth observations objective, solve communications downlink bottle-necks, distributed fuel consumption to maintain optimar constellation shape.
+    \end{enumerate}
+
+  \item Tipical fuel-use drivers are:
+  \begin{itemize}
+    \item Mission requirements.
+    \item Initial conditions
+    \item Navigation uncertainty
+    \item Actual errors
+    \item Dynamical process noise
+  \end{itemize}
+
+  \item Formation control strategies:
+  \begin{itemize}
+    \item Proportional-derivative
+    \item Linear quadratic regulation
+    \item Linear matrix inequalities
+    \item Lyapunov
+  \end{itemize}
+
+  \item The most common formation control strategy used in practice is using thrusting schemes because they are reliable and can be accurately calculated on ground. 
+
+  \item blabla
+    \begin{itemize}
+      \item Vision Based navigation.
+      \item Autonomous formation flying. 
+   \end{itemize}
+
+\end{enumerate}
+\end{document}
+
+

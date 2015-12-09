@@ -1,0 +1,49 @@
+%        File: problema3_2.tex
+%     Created: Tue Nov 17 05:00 PM 2015 A
+% Last Change: Tue Nov 17 05:00 PM 2015 A
+%
+\documentclass[a4paper]{article}
+\usepackage[english]{babel}
+\usepackage{enumitem}
+\usepackage{mathrsfs}
+\begin{document}
+\begin{enumerate}[label=\emph{\alph*)}]
+  \item % a) Why do we use orbit elements to describe relative motion? How do we derive a linear mapping between Hill coordinates
+        %    and combinations of orbit elements? What are the specific assumptions adopted?
+    Using orbit elements to describe relative motion is analog to using curvilinear variables: When linearizing, the equations of motion obtained are a better aproximation to the non-linear ones. Also, for the restricted two body problem, both deputy and chief orbit elements are constant (with exception of $M$ or $f$), so their difference will also be constant. In order to map the relative orbit elements to Hill coordinates, we use the linear mapping. The deputy position vector is expresed in the chief RTN set of coordinates using the rotation matrix from chief to inertial, and from inertial to deputy. Linearizing about the chief orbits, we can express the deputy to inertial rotation matrix as:\\
+    \[[ND]=[NC]+[\delta NC]\]
+    The variation in the chief to inertial rotation matrix $[\delta NC]$ is expressed in terms of the relative orbit elements $\{\delta\Omega,\delta\theta, \delta i\}$. Replacing this in the expresion for the deputy position vector in the RTN chief's frame, and differentiation with respect to time, gives the linear mapping between the deputy relative position in the chief RTN frame and the diferential orbital elements.
+
+  \item %b) Why do we use the difference in mean anomaly or mean argument of latitude rather than the differences in true anomaly
+        %   or true argument of latitude to describe the relative motion?
+    We use $\delta M$ instead of $\delta f$ because, for $\delta a = 0$ in unperturbed motion, its derivative is constant even for eliptic chief's orbit.
+ 
+  \item %c) Describe the equivalent solution of TH equations in orbit element differences space. Do you recognize the periodic and
+        %   secular modes? Which orbit element differences drive those modes? Do you expect the solution in orbit element differences
+        %   space or YA to be more accurate? Why?
+    The solution of the TH equation in relative orbit elements are the following:
+    \[u(f) = \frac{\delta a}{a} - \frac{e \delta e}{2\eta^2}+\frac{\delta_u}{\eta^2} \left(\cos{f-f_u}+\frac{e}{2}\cos{2f-f_u} \right) \]
+    \[v(f) = \left( \left(1+\frac{e^2}{2}\right) \frac{\delta M}{\eta^3}+\delta \omega + \cos{i\delta\Omega}\right) - \frac{\delta_u}{\eta^2}\left( 2\sin{f-f_u}+\frac{e}{2}\sin{2f-f_u}\right)\]
+    \[w(f) = \delta_w\cos{\theta-\theta_w} \]
+    where $u,v,w$ are non-dimensional coordinates $(x,y,z)/r$: 
+    \[f_u = \tan{\frac{e\delta M}{-\eta\delta e}}^{-1}\]
+    \[\theta_w = \tan{\frac{\delta i}{\sin{i \delta \Omega}}} \]
+    \[\delta_u = \sqrt{\frac{e^2\delta M^2}{\eta^2}+\delta e^2} \]
+    \[\delta_w = \sqrt{\delta i^2+\sin{i}^2\delta\Omega} \]
+    \[\eta = \sqrt{1-e^2} \]
+
+    Secular efects are hidden in $\delta M$, which grows for non-zero differences in $a$:
+    \[\delta M = \delta M_0 - \frac{3}{2}\frac{\delta a}{a}(M-M_0)\]
+
+    This solution is more accurate than the YA solution because $\delta a$ is not approximated by the linearization process, thus bounded orbits can be more accurately design.
+
+  \item % d) What is the key difference between the solution of the equations of relative motion in orbit element differences space for
+        %    arbitrary and small eccentricity?
+    When assuming $e\rightarrow 0$, $r$ becomes a constant, so we can expres the solution for $(x,y,z)$ instead of $(u,v,w)$. This has the advantage that the equations now gives true separation, not affected by the position in the chief's orbit. Also, the solution can be easily compared with the amplitud/phase solution of the HCW equation, showing the direct relation between HCW integration constants and the relative orbit elements.
+
+  \item % e) Describe the linear mapping provided by Schaub between Hill coordinates and orbit element differences for near-circular
+        %    orbits. How does it compare to the solution of the HCW in amplitude/phase form?
+
+\end{enumerate}
+\end{document}
+
