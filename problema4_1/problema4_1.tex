@@ -3,9 +3,14 @@
 % Last Change: Wed Nov 18 10:00 AM 2015 A
 %
 \documentclass[a4paper]{report}
+\usepackage[english]{babel}
+\usepackage{enumitem}
+\usepackage{mathrsfa}
+
 \begin{document}
 \begin{enumerate}
-  \item For LEO, the order of magnitud of the \bold{differential} accelerations are:
+  \item %a) What is the order of magnitude of differential accelerations caused by individual perturbations in LEO? What are the most relevant perturbations? How do things change in GEO?
+    For LEO, the order of magnitud of the \bold{differential} accelerations are:
     \begin{itemize}
       \item Spherical Earth = $10^0$
       \item J2 = $10^{-2}$
@@ -16,13 +21,34 @@
       \item Solar Radiation Pressure(2\%) = $10^{-10}$
     \end{itemize}
     For GEO orbits, Moon, Sun, and Solar Pressure terms remain almost the same, and Spherical Earth, J2 and J3 terms are reduce by a magnitude of $10^{-2}$.
-  \item In order to include J2 effects, we only take its long-term and secular effects. Neglecting second order effects, we can write the variation of ROE as a function of the relative excentricity and inclination vectors $\delta \vec{i}$ and $\delta \vec{e}$, and the chief's orbit inclination $i$:
+
+  \item % b) How do we include Earth’s oblateness J 2 perturbations in the relative dynamics model? What are the secular effects of J2 perturbations on the relative orbit elements (ROE)? Show these effects geometrically in ROE space
+    In order to include J2 effects, we only take its long-term and secular effects. Neglecting second order effects, we can write the variation of ROE as a function of the relative excentricity and inclination vectors $\delta \vec{i}$ and $\delta \vec{e}$, and the chief's orbit inclination $i$:
     $equacion (2.28)$\\
     Integrating this equation over $u$, we get:
     $equation 2.29 & 2.30$.
     Analysing the result, we se that J2 does no affect $\delta e$ magnitud, but its phase $\phi$. The normalized speed of this variation depends mainly of the inclination $i$. Looking at the inclination vector, we see that only $i_y$ is afected by $J_2$ being its effect positive for the for $+\delta i$ and negative for $-\delta i$. Finally, looking the $\delta a, \delta \lambda$ plane, we se $J_2$ effects only $\delta\lambda$, depending on the relative inclination $\delta i$ and obsolute inclination $i$. $i$ can be chosen in order to produce an exactly oposite displacement than the one produce by Kepler due to $\delta a != 0$, in order to keep a $\delta a$ value without changing $\delta \lambda$.
   
-  \item 
+  \item % c) How much does the relative eccentricity vector rotate in 15 days in LEO? For which inclinations is the motion counter-clockwise? At what inclinations is the J 2 effect removed?
+
+  \item % e) How much does the relative inclination vector translate in 15 days in LEO? For which inclinations is the motion “upwards”? At what inclinations is the J 2 effect removed? Can we remove this effect by a proper selection of the ROE?
+
+  \item % f) How much does the relative mean longitude translate in 15 days in LEO due to Kepler and J 2 effects? At what inclinations is the J 2 effect removed? Can we obtain bounded relative motion in the presence of J 2 effects by a proper selection of the ROE?
+
+  \item % g) What are the relevant secular effects caused by differential drag on the ROE? Show these effects geometrically in ROE space. How well can we match the ballistic coefficients of two spacecraft in LEO (use GRACE as example)? Can we neglect differential drag for closely flying identical spacecraft? When is your conclusion no longer valid?
+
+  \item % h) How can we incorporate impulsive maneuvers in the relative dynamics model? How can we derive closed-form deterministic impulsive maneuvering schemes? Summarize the effects of impulsive maneuvers in R, T, and N
+
+  \item % i) Why do we aim at closed-form solution of the relative motion control problem?
+
+  \item % j) Describe the closed-form minimum delta-v solution for out-of-plane control, both geometrically and analytically
+
+  \item % k) Describe the closed-form minimum delta-v solution for in-plane control (two pulses), both geometrically and analytically
+
+  \item % l) Describe the closed-form minimum delta-v solution for in-plane control (three pulses), both geometrically and analytically
+
+  \item % m) Describe how we try to generalize the closed-form solution approach for large reconfigurations including perturbations
+
 \end{enumerate}
 \end{document}
 

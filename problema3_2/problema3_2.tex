@@ -43,6 +43,40 @@
 
   \item % e) Describe the linear mapping provided by Schaub between Hill coordinates and orbit element differences for near-circular
         %    orbits. How does it compare to the solution of the HCW in amplitude/phase form?
+    For near-circular orbits ($e<\rho/r\ll1$, excentricity smaller than relative separation) terms containing the eccentricity can be dropped, and the following aproximations can be made: $r\approx a, ~\eta\approx 1,~f_x = f_y \aaprox 0,~f\approx M=n\cdot t$. Comparing the solution obtain to the HCW solution in phase form:
+    \begin{itemize}
+      \item $x(t)$ equation has an offset proportional to $\delta a$ not present in the HCW solution.
+      \item The $x,y$ solution has the same eliptical shape in both cases ($y$ axis doubles $x$ axis), with its mayor axis equal to $2a\delta e$.
+      \item $y(t)$ solution has a secular term for $\delta a \neq 0$ in $\delta M$.
+    \end{itemize}
+
+  \item %f ) What is the typical range of validity of the linearized equations of relative motion? What is the order of magnitude of the prediction errors over 1 orbit?
+    The range of validity of the linearized equations of relative motion depends on the relative separation of the spacecrafts. For $\rho/r\approx 0.003$ and $a=7555~km$, we can expect an error in the solution of arround 40 m error. The error can increase up to 500 m in the case of the near-circular orbit solution for $e=0.13$.
+
+  \item % g) What are the formal differences between the orbit element differences of Schaub and the relative orbit elements (ROE) of    D’Amico? Why do we introduce the relative eccentricity vector and the relative mean argument of latitude?
+    D'Amico's ROE use $\lambda,~\delta \vec{e},~\delta \vec{i}$ intead of $\omega,~\Omega,~M,~e,~i$. Only $\delta a$ is mantain. Te relationship between both ser of parameters is given by:
+    \[\delta\lambda=(M_d-M)+(\omega_d-\omega)+(\Omega_d-\Omega)\cos{i} \]
+    \[\delta\vec{e} = \left( \begin{array}{cc} e_d\cos{\omega_d}-e\cdot\cos{\omega} \\
+      e_d\sin{\omega_d}-e\cdot\sin{\omega} \end{array} \right) \]
+    \[\delta\vec{i} = \left( \begin{array}{cc} i_d-i \\ (\Omega_d-\Omega)\sin{i} \right) \end{array}\]
+    The relative excentricity vector $\delta\vec{e}$ aboids indeterminations for circular orbits, where $e=0$ and $\omega$ could have any value. In the same way, the relative excentricity vector $\delta\vec{i}$ solves the intedertimation for equatorial orbits, where $i=0$ and $\Omega$ could have any value.
+
+  \item % h) Describe the linear mapping between Hill coordinates and ROE and compare with the solution of HCW and Schaub  mapping.
+    In the radial direction, linear mapping between Hill coordinates and ROE gives the same result that HWC linear solution except for the offset component $\delta a$. In the along-track direction the amplitud of the periodic oscilations doubles the radial motion, as well as in HCW, but there is also a secular effect due to $\delta\lambda$ and $\delta a$. For the cross track direction the solution is depends only on relative $i$ and $\Omega$, and is independent of the $x,y$ solution, as wel as in HCW.
+
+  \item % i) How do we achieve bounded and centered relative motion in ROE space? Show the analytical expression for the minimum separation perpendicular to the flight direction as a function of ROE. Which choice of ROE guarantees a minimum separation perpendicular to the flight direction at all times? Which choice of ROE maximizes this minimum separation?
+    To obtain a bounded motion, $\delta a=0$ must be satisfy. To have a centered relative motion, once the previous condition satisfy, we need $\delta \lambda = 0$, which means $\delta(\omega+M)=-\delta\Omega\cos{i}$. In order to guarantee the minimal separation perpendicular to the flight direction, we must look the the $r,n$ motion:
+    \[ r_{rn}(u) = a\cdot \sqrt{{\delta r_r(u)}^2+{\delta r_n(u)}^2} = \delta a\cdot sqrt{{-\delta e_x\cos{u}-\delta e_y\sin{u}}^2+{-\delta e_x\cos{u}-\delta e_y\sin{u}}^2} \]
+    \[\rightarrow ~\delta r_{min}^{nr} = \frac{\sqrt{2}a|\delta e \cdot \delta i|}{\sqrt{\delta e^2+\delta i^2+|\delta e + \delta i| \cdot |\delta e - \delta i|}} \]
+  Choosing $\delta e~//~\delta i$ maximize the minimim distance between spacecraft normal to the trayectory.
+
+  \item % j) What are the relative perigee and relative ascending nodes? Sketch to show their meaning. Where are they located w.r.t.   the absolute orbit for parallel relative eccentricity/inclination vectors? Is the relative motion clock-wise or counter-clock-wise in the TR and NR planes, explain?
+    The relative perigee is the phase of the relative excentricity vector $Arg[\delta \vec{e}] = \tan^{-1}{\frac{\delta e_y}{\delta e_x}}$, and the relative ascending node is the argument of the relative inclination vector $Arg[\delta \vec{i}]= \tan^{-1}{\frac{\delta i_y}{\delta i_x}}$.
+
+
+  \item % k) How can we define safe and unsafe formations, rationale? Can we obtain smaller baselines in the TR plane by a proper selection of the angle enclosed between relative eccentricity and relative inclination vectors? Show a numerical example.
+
+
 
 \end{enumerate}
 \end{document}
