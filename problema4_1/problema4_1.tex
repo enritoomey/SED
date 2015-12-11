@@ -5,12 +5,12 @@
 \documentclass[a4paper]{report}
 \usepackage[english]{babel}
 \usepackage{enumitem}
-\usepackage{mathrsfa}
+\usepackage{mathrsfs}
 
 \begin{document}
-\begin{enumerate}
+\begin{enumerate}[label=\emph{\alph*)}]
   \item %a) What is the order of magnitude of differential accelerations caused by individual perturbations in LEO? What are the most relevant perturbations? How do things change in GEO?
-    For LEO, the order of magnitud of the \bold{differential} accelerations are:
+    For LEO, the order of magnitud of the \textbf{differential} accelerations are:
     \begin{itemize}
       \item Spherical Earth = $10^0$
       \item J2 = $10^{-2}$
@@ -24,12 +24,23 @@
 
   \item % b) How do we include Earth’s oblateness J 2 perturbations in the relative dynamics model? What are the secular effects of J2 perturbations on the relative orbit elements (ROE)? Show these effects geometrically in ROE space
     In order to include J2 effects, we only take its long-term and secular effects. Neglecting second order effects, we can write the variation of ROE as a function of the relative excentricity and inclination vectors $\delta \vec{i}$ and $\delta \vec{e}$, and the chief's orbit inclination $i$:
-    $equacion (2.28)$\\
+
+    \[\dot{\delta\alpha} = \left( \begin{array}{c}
+      0 \\
+      -\frac{21}{2}\gamma n \sin{2i} \delta i_x \\
+      -\frac{3}{2}\gamma n(5\cos{i}^2-1) \delta e_y \\
+      \frac{3}{2}\gamma n (5\cos{i}^2)\delta e_x \\
+      0 \\
+      3\gamma\sin{i}^2 \delta i_x
+      \end{array} \right) \]   
     Integrating this equation over $u$, we get:
-    $equation 2.29 & 2.30$.
+    \[\delta \alpha(t) = \left( \begin{array}{c} \delta a \\ \delta \lambda - \frac{21}{2}(\gamma\sin{2i}\delta i_x + \frac{1}{7}\delta a)(u(t)-u_0) \\ \delta e \cos{\varphi+\varphi'(u(t)-u_0)} \\  \delta e \sin{\varphi+\varphi'(u(t)-u_0)} \\ \delta i_x \\ \delta i_y + 3\gamma \sin{i}^2 \delta i_x (u(t)-u_0) \end{array} \right) \]
+    \[\mathrm{with}~~\varphi' = \frac{d\varphi}{du} = \frac{3}{2} \gamma (5 \cos{i}^2-1) \]
+
     Analysing the result, we se that J2 does no affect $\delta e$ magnitud, but its phase $\phi$. The normalized speed of this variation depends mainly of the inclination $i$. Looking at the inclination vector, we see that only $i_y$ is afected by $J_2$ being its effect positive for the for $+\delta i$ and negative for $-\delta i$. Finally, looking the $\delta a, \delta \lambda$ plane, we se $J_2$ effects only $\delta\lambda$, depending on the relative inclination $\delta i$ and obsolute inclination $i$. $i$ can be chosen in order to produce an exactly oposite displacement than the one produce by Kepler due to $\delta a != 0$, in order to keep a $\delta a$ value without changing $\delta \lambda$.
   
   \item % c) How much does the relative eccentricity vector rotate in 15 days in LEO? For which inclinations is the motion counter-clockwise? At what inclinations is the J 2 effect removed?
+    Assuming that the chief's orbit inclination is $i = 55^o$ and the excentricity $e = 0$, the value of $\varphi'$ is $0.00030016$. For a LEO orbit ($h = 500 km$), the orbit period is of 1.57 hs, this means that in 15 days the spacecrafts orbits 228 times. In degrees, this is a value of $u$ of $1436.6~rad$. This means a $24.7^o$ variation of $\varphi$. For $i = 20^o $, $\Delta\varphi = 130^0$.
 
   \item % e) How much does the relative inclination vector translate in 15 days in LEO? For which inclinations is the motion “upwards”? At what inclinations is the J 2 effect removed? Can we remove this effect by a proper selection of the ROE?
 
