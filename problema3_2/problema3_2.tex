@@ -43,7 +43,7 @@
 
   \item % e) Describe the linear mapping provided by Schaub between Hill coordinates and orbit element differences for near-circular
         %    orbits. How does it compare to the solution of the HCW in amplitude/phase form?
-    For near-circular orbits ($e<\rho/r\ll1$, excentricity smaller than relative separation) terms containing the eccentricity can be dropped, and the following aproximations can be made: $r\approx a, ~\eta\approx 1,~f_x = f_y \aaprox 0,~f\approx M=n\cdot t$. Comparing the solution obtain to the HCW solution in phase form:
+    For near-circular orbits ($e<\rho/r\ll1$, excentricity smaller than relative separation) terms containing the eccentricity can be dropped, and the following aproximations can be made: $r\approx a, ~\eta \approx 1,~f_x = f_y \approx 0,~f\approx M=n\cdot t$. Comparing the solution obtain to the HCW solution in phase form:
     \begin{itemize}
       \item $x(t)$ equation has an offset proportional to $\delta a$ not present in the HCW solution.
       \item The $x,y$ solution has the same eliptical shape in both cases ($y$ axis doubles $x$ axis), with its mayor axis equal to $2a\delta e$.
@@ -58,7 +58,7 @@
     \[\delta\lambda=(M_d-M)+(\omega_d-\omega)+(\Omega_d-\Omega)\cos{i} \]
     \[\delta\vec{e} = \left( \begin{array}{cc} e_d\cos{\omega_d}-e\cdot\cos{\omega} \\
       e_d\sin{\omega_d}-e\cdot\sin{\omega} \end{array} \right) \]
-    \[\delta\vec{i} = \left( \begin{array}{cc} i_d-i \\ (\Omega_d-\Omega)\sin{i} \right) \end{array}\]
+    \[\delta\vec{i} = \left( \begin{array}{cc} i_d-i \\ (\Omega_d-\Omega)\sin{i} \end{array} \right) \]
     The relative excentricity vector $\delta\vec{e}$ aboids indeterminations for circular orbits, where $e=0$ and $\omega$ could have any value. In the same way, the relative excentricity vector $\delta\vec{i}$ solves the intedertimation for equatorial orbits, where $i=0$ and $\Omega$ could have any value.
 
   \item % h) Describe the linear mapping between Hill coordinates and ROE and compare with the solution of HCW and Schaub  mapping.
@@ -70,12 +70,10 @@
     \[\rightarrow ~\delta r_{min}^{nr} = \frac{\sqrt{2}a|\delta e \cdot \delta i|}{\sqrt{\delta e^2+\delta i^2+|\delta e + \delta i| \cdot |\delta e - \delta i|}} \]
   Choosing $\delta e~//~\delta i$ maximize the minimim distance between spacecraft normal to the trayectory.
 
-  \item % j) What are the relative perigee and relative ascending nodes? Sketch to show their meaning. Where are they located w.r.t.   the absolute orbit for parallel relative eccentricity/inclination vectors? Is the relative motion clock-wise or counter-clock-wise in the TR and NR planes, explain?
-    The relative perigee is the phase of the relative excentricity vector $Arg[\delta \vec{e}] = \tan^{-1}{\frac{\delta e_y}{\delta e_x}}$, and the relative ascending node is the argument of the relative inclination vector $Arg[\delta \vec{i}]= \tan^{-1}{\frac{\delta i_y}{\delta i_x}}$.
-
+  \item % j) What are the relative perigee and relative ascending nodes? Sketch to show their meaning. Where are they located w.r.t. the absolute orbit for parallel relative eccentricity/inclination vectors? Is the relative motion clock-wise or counter-clock-wise in the TR and NR planes, explain?
+    The relative perigee is the phase of the relative excentricity vector $\varphi = Arg[\delta \vec{e}] = \tan^{-1}{\frac{\delta e_y}{\delta e_x}}$, and the relative ascending node is the argument of the relative inclination vector $\vartheta = Arg[\delta \vec{i}]= \tan^{-1}{\frac{\delta i_y}{\delta i_x}}$. This angles are related with the absolute orbit mean argument of latitud in the following way: when $u = \varphi$ the maximum radial separation occurs; when $u = \varphi+\pi$ the maximum along-track separation occurs; and when $u = \vartheta+\pi$ the maximum cross-track separation occurs. The relative motion in the TR plane is counter-clockwise for $\delta e > 0 $. The same is valid for the RN frame for $\delta e > 0$ and $\delta i > 0$.
 
   \item % k) How can we define safe and unsafe formations, rationale? Can we obtain smaller baselines in the TR plane by a proper selection of the angle enclosed between relative eccentricity and relative inclination vectors? Show a numerical example.
-
 
 
 \end{enumerate}
