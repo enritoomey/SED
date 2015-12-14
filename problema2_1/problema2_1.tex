@@ -1,24 +1,91 @@
-/*set filetype:tex*/
-\begin{document}<++>
-a) There are two aproaches: asuming an harmonical potential perturbation force (Lagrange Planetary Equations), or directly integrating the orbit parameters variations due to arbitrary perturbations forces expressed in the RTN frame (Gauss variational equations).
+\documentclass[a4paper]{article}
+\usepackage[english]{babel}
+\usepackage{enumitem}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage[makeroom]{cancel}
 
-b) The method of variation of parameters cosist on the following steps:
-	-Take the homogeneous solution of the differential equation.
-	- Take the integration constants of the 'unperturbed' motion.
-	- Express these constans as a function of time.
-	- Introduce ad-hoc constrains to simplify equations.
-	- Solve for new, now time-dependent parametes.
+\begin{document}
+\title{Questions 2.1}
+\author{Enrique C. Toomey}
+\date{\today}
+\maketitle
+\begin{enumerate}[label=\emph{\alph*)}]
+  \item %a) How do we solve the fundamental differential equations in the presence of perturbations?
+    There are two aproaches: asuming an harmonical potential perturbation force (Lagrange Planetary Equations), or directly integrating the orbit parameters variations due to arbitrary perturbations forces expressed in the RTN frame (Gauss variational equations).
+  \item %b)  we expect to only spend a tiny fraction of this in the next few years.
+    The method of variation of parameters cosist on the following steps:
+    \begin{itemize}
+      \item Take the homogeneous solution of the differential equation.
+      \item Take the integration constants of the 'unperturbed' motion.
+      \item Express these constans as a function of time.
+      \item Introduce ad-hoc constrains to simplify equations.
+      \item Solve for new, now time-dependent parametes.
+    \end{itemize}
+  \item % c) What are the Lagrange’s and Gauss variational equations? Under which assumptions are they derived? What are the main differences?
+    Both sets of equation uses the oculating constrains in order to obstain the three extra degrees to solve the VOP problem:
+    \[\frac{\partial f}{\partial oe} \dot{oe} = 0\]
+    This means that the trajectory in the inertial configuration space is always tangential to an 'instantaneous' elipse (or hyperbola) defined by the instantaneous values of the time-varying orbital elements.
+    \begin{itemize}
+      \item Lagrange variational equations: In presence of a conservative, position-only dependent perturbing potential, VOP (variation-of-parameters) leads to the LPE. LPE uses geo-potential expansion in spherical harmonics to model earth gravitational field.
+	\[\frac{d\vec{oe}}{dt} = \mathscr{L}^{-1}\frac{\delta R}{\delta \vec{oe}} \]
+      \item Gauss variational equations: does no assumption on $\vec{d}$
+	\[\dot{oe}=\frac{\partial oe}{partial v} d\]
+    \end{itemize}
+  
+  \item % d) How can we incorporate higher order geopotential coefficients in our solution? How can we incorporate atmospheric drag in our solution? How can we incorporate impulsive maneuvers in our solution?
+    Perturbation forces $d$ due to the geopotential $R$ are computed through:
+    \[ d = \frac{\partial R}{\partial r}\]
+    where $R$ can be modeled as a series of Legendre polynomials $P_k$:
+    \[ R = -\frac{\mu}{r} \sum_{k=2}^{n}{J_k \left( \frac{Re}{r} \right)^k P_k(\cos{\phi})}\]
+    where $\cos{phi}=\sin{i}\cdot\sin{f+w}$ and $P_k(x) = \frac{1}{2^k !k}\frac{d^k}{dx^k}\left[(x^2-1)^k\right]$. The larger $n$ is (number of terms in the series), the higher the order of the potential model used is, leading to more realistic earth modelling.\\
+    Atmospheric drag can be incorporated using gauss variational equations, with osculating constrains. Acceleration $d$ due to drag is calculated through:
+    \[ a_D = -\left(\frac{A}{m} \right) C_D \rho \frac{v^2}{2}~\hat{i}_v \]
+    As th versor $\hat{i}_v$ is not aligned with the RTN frame, the following rotation matrices may be use:
+    \[ \left( \begin{array}{c} a_r \\ a_t \end{array} \right) = \frac{1}{\sqrt{1+e^2+2e\cos{f}}} \left[ \begin{array}{c c} 1+e\cos{f} & e\sin{f} \\ -e\sin{f}  & 1+e\cos{f} \end{array} \right]  \left( \begin{array}{c} a_{D\perp} \\  a_D \end{array} \right) \]
+    Maneuver can be modeled as instantaneous variations of velocity, which cause instantaneous variations in the relative orbit elements.
+  \item % e) Describe the key effects of J2, drag, and impulsive maneuvers on the orbit solution
+    J2 effects can be decompose in short term and long term oscilations, and secular effects. Secular effects affects $\Omega$, $\omega$ and $M_0$ in the following way:
+    \begin{minipage}{\textwidth}
+      \begin{flushleft}
+	\[ \frac{d\bar{\Omega}}{dt} = -\frac{3}{2} J_2 \left( \frac{Re}{\bar{p}} \right)^2 \bar{n} \cos{\bar{i}} \]
+	\[ \frac{d\bar{\omega}}{dt} = \frac{3}{4} J_2 \left( \frac{Re}{\bar{p}}\right)^2  \bar{n} (5\cos{\bar{i}}^2 -1) \]
+	\[ \frac{d\bar{M_0}}{dt} = \frac{3}{4} J_2 \left( \frac{Re}{\bar{p}}\right)^2  \bar{n} \sqrt{1-\bar{e}^2} (3\cos{\bar{i}}^2 -1) \]
+      \end{flushleft}
+    \end{minipage}
 
-c) Both sets of equation uses the oculating constrains in order to obstain the three extra degrees to solve the VOP problem:
-$\frac{\partial f}{\partial oe} \dot{oe} = 0$
-This means that the trajectory in the inertial configuration space is always tangential to an 'instantaneous' elipse (or hyperbola) defined by the instantaneous values of the time-varying orbital elements.
+    Atmospheric drag's main effect is the semi-mayor axis $\bar{a}$  and excentricity $\bar{e}$ reduction (orbits tend to be circular). It also introduce periodic effects on $\omega$, $M$ and $e$.\\
+    Maneuvers can affect any of the six orbital elements:
+    \begin{itemize}
+      \item Cross-track maneuvers affects $(\bar{i},\bar{\Omega},\bar{\omega})$.
+      \item Along-track maneuvers affects $(\bar{a},\bar{e},\bar{\omega},\bar{M_0})$.
+      \item Radial maneuvers affects $(\bar{a},\bar{e},\bar{\omega},\bar{M_0})$, though less strongly than along-track maneuvers.
+    \end{itemize}
 
- Lagrange variational equations:
-	In presence of a conservative, position-only dependent perturbing potential, VOP (variation-of-parameters) leads to the LPE. LPE uses geo-potential expansion in spherical harmonics to model earth gravitational field.
-	$\frac{d\vec{oe}}{dt} = \L^{-1}\frac{\delta R}{\delta \vec{oe}} $
-  Gauss variational equations:
-	Gauss variational equation does no assumption on $\vec{d}$
-	$\dot{oe}=\frac{\partial oe}{partial v} d$
+  \item % f) What are the inclinations which remove secular effects of J2 on the orbit elements?
+    For polar orbits $(i=90^o)$, $d\bar{\Omega} / dt$ effects disapear. To remove $\bar{\omega}$ and $\bar{M_0}$ effects, $i$ must be equal to $\cos^{-1}{\sqrt{1/5}}$ and $\cos^{-1}{\sqrt{1/3}}$ respectively.
+ 
+  \item % g) What are the secular effects of atmospheric drag on the orbit elements?
+    Secular effects of atmospheric drag are:
+    \[ \frac{d\bar{e}}{dt} = -\left(\frac{A}{m} \right) C_D \rho \bar{e}; \qquad  \frac{d\bar{a}}{dt} = -\left(\frac{A}{m} \right) C_D \rho \frac{v^3}{\bar{a}\bar{n}^2} \]
 
-d) 
+  \item % h) Do out-of-plane impulsive maneuvers affect the in-plane orbit motion? If yes, is this conclusion still valid if we use the so-called longitude λ = ω + M0 + Ωcos(i) to describe the phasing of the spacecraft along its orbit?
+    Yes, out-of-plane impulse maneuvers affect $\omega$ in the following way:
+    \[\Delta\omega = -\frac{\Delta V_h r \sin{f+\omega}\cos{i}}{h\sin{i}} \]
+    In the case we use $\lambda = \omega+M+\Omega\cos{i}$:
+    \[\arraycolsep=1.4pt\def\arraystretch{2.2}
+    \begin{array}{c c l} \Delta\lambda|_{\Delta v_h} &=& \Delta \omega|_{\Delta v_h} + \cancelto{0}{\Delta M|_{\Delta v_h}} + \Delta \Omega|_{\Delta v_h} \cos{i} - \Omega \sin{i} \Delta i|_{\Delta v_h} \\
+	&=& \cancel{-\frac{\Delta V_h r \sin{f+\omega}\cos{i}}{h\sin{i}}}+ \cancel{\frac{\Delta V_h r \sin{f+\omega}\cos{i}}{h\sin{i}} } - \frac{\Omega \sin{i}\cos{f+\omega}r\Delta v_h}{h}  \\
+    \Delta\lambda|_{\Delta v_h} &=& - \frac{\Omega \sin{i}\cos{f+\omega}r\Delta v_h}{h} \end{array}\] 
+
+  \item % i) Where would you place a maneuver to change inclination only, how oriented in RTN? Where would you place a maneuver to change right ascension of ascending node only, how oriented in RTN? Where would you place a maneuver to change the semi-major axis, how oriented in RTN and w.r.t velocity?
+    To change $i$ a cross-track maneuver in needed in the line of node $\theta = f + \omega = 0$. To change $\Omega$, the cross-track maneuver must be made $90^o$ from the line of nodes $(\omega+f=90^o$, not valid for polar orbits). To change the semi-mayor acis the maneuver must be made in the direction of the velocity vector (this may affect $e$, $\omega$ and $M_0$ also, but would not alter $i$ and $\omega$). In the RTN frame the maneuver is:
+    \[a_R = \frac{e\sin{f}}{\sqrt{1+e^2+2e\cos{f}}} a_v \]
+    \[a_N = \frac{1+ e\cos{f}}{\sqrt{1+e^2+2e\cos{f}}} a_v \]
+
+\end{enumerate}
+\end{document}
 

@@ -8,27 +8,30 @@
 
 \begin{document}
 \begin{enumerate}[label=\emph{\alph*)}]
-  % a)
-  \item The solution of the HCW equations have the following characteristics:
+  
+  \item % a) Describe the key characteristics of the solution of the HCW equations? Link eigenvalues to periodic and secular modes
+    The solution of the HCW equations have the following characteristics:
     \begin{itemize}
       \item $x,y$ movement are decoupled of the $z$ movement.
       \item The $y$ component of the equation of motion has a linear drift depending on the term: $[6nx(0)+3\dot{y}(0)]t$
       \item We can relate the periodic oscilation in the three equations with complex eigenvalues of the 6x6 A matrix.
     \end{itemize}
-  %b)
-  \item The equilibria of the HCW equation are every solution with the $x=z=0$, that means, the deputy in the RTN $y$ axis. For the non-linear case, the equilibria is satisfy when the deputy is placed in the same orbit than the chief (same mayor axis). The difference between both solutions is due to the linearization of the orbit, which is aproximated by its tangent.
-  %c)
-  \item The magnitud-phase solution of the HWC equations have same phase $\alpha_x$  for x and y motion equation, having the same period. This is interpreted as a eliptic trayectory in the $x,y$ plane, with its center of motion shifted in the $y$ direction. We can obtain a 3D elipse if we force the z phase $\alpha_z$ to be equal to $\alpha_x$. The excentricity in the RT ($x,y$ plane) can be obtain from:
+  \item % b)What are the equilibria of the HCW equations? How do they compare to ones of the nonlinear equations? Are there possible contradictions? How do you explain those?
+    The equilibria of the HCW equation are every solution with the $x=z=0$, that means, the deputy in the RTN $y$ axis. For the non-linear case, the equilibria is satisfy when the deputy is placed in the same orbit than the chief (same mayor axis). The difference between both solutions is due to the linearization of the orbit, which is aproximated by its tangent.
+  
+  \item % c) Describe the solution of the HCW equations in amplitude/phase form. Derive the eccentricity of the relative orbit projected in RT. When do we obtain an elliptical relative orbit when projected in RN?
+    The magnitud-phase solution of the HWC equations have same phase $\alpha_x$  for x and y motion equation, having the same period. This is interpreted as a eliptic trayectory in the $x,y$ plane, with its center of motion shifted in the $y$ direction. We can obtain a 3D elipse if we force the z phase $\alpha_z$ to be equal to $\alpha_x$. The excentricity in the RT ($x,y$ plane) can be obtain from:
     \[ x(t)=\rho_x\sin{(nt+\alpha_x)}\]
     \[y(t)=\rho_y+2*\rho_x\cos{nt+\alpha_x)}\]
     \[x_2(t)+\frac{{(y-\rho_y)}_2}{2}=(\rho_x\sin{(nt+\alpha_x)})^2+(\rho_x\cos{nt+\alpha_x})^2=\rho_x^2\]
   The expresion obtained, as said before, corresponds to an elipse, whos mayor axis is $2\cdot \rho_x$ and minor axis $\rho_x$. Using this to calculate the excentricity:
     \[e=\sqrt{1-\frac{\rho_x^2}{4\rho_x^2}}=\frac{\sqrt{3}}{2}\]
-  %d) 
-  \item The dificult in designing bounded (non drifting) relative orbits using HCW is that there is an inhereted drift caused by the linearization of the equation, cuadratically proportional to the distance between chief and deputy. Even with the non-drifting initial conditions of there is a drift from the ''real'' solution of the restricted two body porblem. This problem can be circumvent using the curvilinear coordinates $(\delta r,\theta_r,\phi_r)$. The HCW equations expresed in this coordinates have the exact same form than the ones obtained using cartesian coordinates.
-  % e)How do we derive the linearized equations of relative motion for arbitrary eccentricity (Tschauner-Hempel, TH)? What
-  %   are the similarities and differences between HCW and TH?
-  \item The linearized equations of relative motion for arbitrary eccentricity are derived by first normalizing the RTN relative variables $x,y,z$, and incorpotaring a non-dimensial potential function $\mathscr{W}$ and $\mathscr{U}$ of the form:
+
+  \item % d) Describe the solution of the HCW equations in amplitude/phase form. Derive the eccentricity of the relative orbit projected in RT. When do we obtain an elliptical relative orbit when projected in RN?
+        The dificult in designing bounded (non drifting) relative orbits using HCW is that there is an inhereted drift caused by the linearization of the equation, cuadratically proportional to the distance between chief and deputy. Even with the non-drifting initial conditions of there is a drift from the ''real'' solution of the restricted two body porblem. This problem can be circumvent using the curvilinear coordinates $(\delta r,\theta_r,\phi_r)$. The HCW equations expresed in this coordinates have the exact same form than the ones obtained using cartesian coordinates.
+  
+  \item % e)How do we derive the linearized equations of relative motion for arbitrary eccentricity (Tschauner-Hempel, TH)? What are the similarities and differences between HCW and TH?
+    The linearized equations of relative motion for arbitrary eccentricity are derived by first normalizing the RTN relative variables $x,y,z$, and incorpotaring a non-dimensial potential function $\mathscr{W}$ and $\mathscr{U}$ of the form:
    \[ \mathscr{W} = \frac{1}{1+e_0 \cos{f_0}} \left[ \frac{1}{2}(\bar{x}^2+\bar{y}^2+e_0 \bar{z}^2 \cos{f_0})-\mathscr{U} \right]  \]
    \[\mathscr{U} = -\frac{1}{\left[(1+\bar{x})^2+\bar{y}^2+\bar{z}^2 \right]^{\frac{1}{2}}}+1-\bar{x}\]
    Finally, instead of using the time as the independent variable, $f$ is used. The time derivative becomes:
@@ -40,14 +43,12 @@
 
    Which can be linearized to:
    \[\bar{x}'' = \frac{3}{k} \bar{x}+2\bar{y}'\]
-   \[\bar{y}'''= -2\bar{x}' \]
+   \[\bar{y}''= -2\bar{x}' \]
    \[\bar{z}'' = -\bar{z}' \]
    where $k =  1+e\cos{f}$. The equations obtained have the same form than the HWC equations, except for term $1/k$ multiplying $\bar{x}$ in the first equation. 
 
-   % f) How do we derive the solution of TH (Yamanaka-Ankersen, YA)? What are the secular effects (unbounded relative orbit)
-   %    and how can we remove them? Are there multiple combinations of initial relative position and velocity that provide
-   %    bounded motion according to YA? What are the differences between no-drift conditions from TH and HCW?
-  \item Yamanaka-Ankersen solution can be obtain by integrating the along-track motion to produce $\bar{y}'$, which is then substituted into the radial motion to obtain an uncoupled differential equation for $\bar{x}$. Solving for $\bar{x}$ enables to obtain  $\bar{y}$. The out-of-plane motion is already decoupled, and can be easily instegrated to obtain a simple harmonic oscilator.The solution is:
+    \item  % f) How do we derive the solution of TH (Yamanaka-Ankersen, YA)? What are the secular effects (unbounded relative orbit) and how can we remove them? Are there multiple combinations of initial relative position and velocity that provide bounded motion according to YA? What are the differences between no-drift conditions from TH and HCW?
+      Yamanaka-Ankersen solution can be obtain by integrating the along-track motion to produce $\bar{y}'$, which is then substituted into the radial motion to obtain an uncoupled differential equation for $\bar{x}$. Solving for $\bar{x}$ enables to obtain  $\bar{y}$. The out-of-plane motion is already decoupled, and can be easily instegrated to obtain a simple harmonic oscilator.The solution is:
    \[\bar{x} = c_1 k \sin{f}+c_2 k \cos{f} + c_3 (2 - 3 e k I\sin{f})\]
    \[\bar{y} = c_4 + c_1 (1+1/k)\cos{f} - c_2 (1+1/k) \sin{f} - 3 c_3 k^2 I \]
    \[\bar{z} = c_5 \cos{f} + c_6 \sin{f}\]
@@ -55,18 +56,15 @@
    \[k(f(t_0)) [\dot{y}(t_0)+\dot{f}(t_0)x(t_0)] + e \sin{f(t_0)}\cdot [\dot{x}(t_0) - \dot{f}(t_0)y(t_0)] + \dot{f}(t_0)x(t_0) = 0 \]
    \[ \qquad  \mathrm{with} \qquad \dot{f}(t_0) = \sqrt{\frac{\mu}{p^3}}k(f(t_0))^2  \]
    There are several combinations of initial position and velocity which satisfy this equations. In the case where $e=0$ and $f(t_0)=0$, the no drift conditions is equal to the no drift condition fot the HCW equations: $\dot{y}+nx=0$.
-  % g) Describe the solution of the TH equations in amplitude/phase form. What are the differences with the solution of HCW?
-  %    Can we obtain bounded and centered relative motion similar to the HCW’s solution? How?
-  \item When expressed in amplitude/phase form, the non drifting solution has the following form:
+  
+ \item % g) Describe the solution of the TH equations in amplitude/phase form. What are the differences with the solution of HCW? Can we obtain bounded and centered relative motion similar to the HCW’s solution? How?
+   When expressed in amplitude/phase form, the non drifting solution has the following form:
    \[x = \rho_x \sin{f+\alpha_x} \]
    \[y = 2 \rho_x \cos{f+\alpha_x} \frac{1+\frac{e}{2}\cos{f}}{1+e\cos{f}} + \frac{\rho_y}{(1+e\cos{f})} \]
    \[z = \rho_z \frac{\sin{f+\alpha_z}}{1+e\cos{f}} \]
    The main difference with the solution of the HCW equations is the along-track bias term  $\frac{\rho_y}{(1+e\cos{f})}$, which can be remove imposing $\rho_y=e\rho_x\cos{\alpha_x}$,  and the $\frac{1+\frac{e}{2}\cos{f}}{1+e\cos{f}}$ term affecting the along-track motion, which leads to a non eliptic solution for the relative motion.
  
-  % h) How would approximate the difference in semi-major axis between deputy and chief according to the HCW and YA?
-  \item I did not understood the quation. 
-
-
+  \item % h) How would approximate the difference in semi-major axis between deputy and chief according to the HCW and YA?
   
 \end{enumerate}
 \end{document}

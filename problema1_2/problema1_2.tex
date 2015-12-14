@@ -4,7 +4,7 @@
 \usepackage{mathrsfs}
 \begin{document}
 \begin{enumerate}[label=\emph{\alph*)}]
-  \item
+  \item % a) Name the fundamental plane, origin, and axes pointing for ECI, Perifocal, ECEF, RTN, and Polar rotating coordinate systems
     \begin{itemize}[label=\textbullet]
       \item ECI:
 	\begin{itemize}
@@ -37,27 +37,36 @@
 	  \item axes pointing:
 	\end{itemize}
     \end{itemize}
-  \item The assumptions behind the restricted earth two body problem are that the secondary mass is negligible compared to m1, and that m1 has a perctly spherical gravitational field. There's no external forces.
-  \item Fundamental orbital differential equations:
+
+  \item % b) What are the assumptions behind the restricted two-body problem?
+    The assumptions behind the restricted earth two body problem are that the secondary mass is negligible compared to m1, and that m1 has a perctly spherical gravitational field. There's no external forces.
+
+  \itemi % c) What is the fundamental orbital differential equations? What is its solution in polar coordinates?
+    Fundamental orbital differential equations:
     \[\ddot{\vec{r}}+\mu\frac{\vec{r}}{r^3}=0\]
     Polar coordinate solution:
     \[r = \frac{p}{1+e\cdot\cos{f}} \qquad \textrm{with:}\]
     \[p = \frac{h^2}{\mu},~~ e=\sqrt{1+\frac{2e h^2}{\mu^2}} ~~ \textrm{and} ~~ f=\theta-\omega\]
     
-  \item To derive the solution in inertial coordinates first we construct the position vector in the perifocal axis:
-    \[[r]_{\mathscr{P}}=[r\cos{f};r\sin{f};0] = []\]
-  Then, we use the three orbit parameters that define the orbit in the inertial frame to rotate the position vector define in the pericoal axis to the inertial axis:
- % \[[r]_{\mathscr{I}} = {T}_{\mathscr{P}}^{\mathscr{I}}~(\omega,i,\Omega) ~ [r]_{\mathscr{P}\]
+  \item % d) What are the steps necessary to derive the solution of the orbital differential equations in inertial coordinates?
+    To derive the solution in inertial coordinates first we construct the position vector in the perifocal axis:
+    \[[r]_{\mathscr{P}}=[r\cos{f};r\sin{f};0] = \]
+    Then, we use the three orbit parameters that define the orbit in the inertial frame to rotate the position vector define in the pericoal axis to the inertial axis:
+    \[ [r]_{\mathscr{I}} =T_{\mathscr{P}}^{\mathscr{I}}~(\omega,i,\Omega) ~[r]_{\mathscr{P}}\] 
   
-  \item (answer afterwards)
+  \item % e) What are the steps necessary to derive the solution of the orbital differential equations with time as independent variable?
+
     
-  \item The true anomaly $f$  or the mean anomaly $M$
+  \item % f) Which orbit elements are not conserved in the restricted two-body problem?
+    The true anomaly $f$  or the mean anomaly $M$
     
-  \item Angular momentum and energy.
+  \item % g) Besides the orbit elements, what key quantities are conserved in the restricted two-body problem?
+    Angular momentum and energy.
     
-  \item Yes, for certain orbits the solutions becomes singular (for example, ciruclar orbits -e=0-, or equatorial orbits)
+  \item % h) Can the Keplerian orbit elements become degenerate? Show some representative cases. What can be done to circumvent this problem?
+    Yes, for certain orbits the solutions becomes singular (for example, ciruclar orbits -$e=0$-, or equatorial orbits)
    
-  \item
+  \item % i) Problem
     \[\vec{r} = 2 \hat{i}\]
     \[\vec{v} = \frac{-1}{\sqrt{2}}+\frac{1}{\sqrt{2}}\hat{j}\]
     \[\vec{h} = \vec{r} \times \vec{v}= \frac{2}{\sqrt{2}}\hat{k} \rightarrow ~ h ~ \textrm{is aligned with Earth's rotating axis, so the orbit is equatorial.}\]
