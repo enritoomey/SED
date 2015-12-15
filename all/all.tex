@@ -8,6 +8,7 @@
 \usepackage{graphicx}
 \graphicspath{ {images/} }
 \usepackage[makeroom]{cancel}
+\usepackage{amssymb}
 
 \begin{document}
 \title{SSD Questionary}
@@ -18,14 +19,17 @@
 
 \section{Questions 1.1}
 \begin{enumerate}[label=\emph{\alph*)},series=preguntas1_1]
-  \item The main three application areas of distributed space system are:
+  \item % a) What are the three main application areas of distributed space systems? Name some key specific applications where breakthroughs are expected in the near future
+    The main three application areas of distributed space system are:
   \begin{itemize}
     \item Space Science (Solar system exploration, Astronomical search of origins)
     \item Planetary science (synthetic aperture radar interferometru, gravity mapping, etc.)
     \item Technology (On orbit servicing and assembly, Humman exploration technology)
   \end{itemize}
   One key specific aplication where breakthroughts are expected in the near future is space debris elimination.
-  \item We can distinguish four different distributed space system's  mission architectures according to the inter-satellite distance adn required control accuracy:
+
+  \item % b)What are the main mission architectures of distributed space systems according to inter-satellite distance and requiredcontrol accuracy?
+    We can distinguish four different distributed space system's  mission architectures according to the inter-satellite distance adn required control accuracy:
   \begin{itemize}
     \item In the lowest inter-satellite distance and highest accuracy required, we have Rendezvous and docking.
     \item In the largest inter-satellite distance and least accuracy required we have constellations, such as GNPS.
@@ -33,9 +37,11 @@
     \item Least of all, we have swarm and fractionated spacecraft mission architecture, requiring low control accuracy for a wide band of inter-satellite dintances.
   \end{itemize}
 
-  \item The key differences between historic, contemporary, and future distributed space systems are that historically, misions where generously founded, ment for short duration, and control was always made from gound (no autonomous navigation). Nowadays missions are ment to be long-duration, cost-efficient and autonomous. Future distributed space system will tend towards miniaturization and standarizartion, using off the shell hardware and easily replacesable technology in order to keep on track with a fast technological development. So we can say that we are going from bigand expensive to small and cost-effective, from ground-control to autonomous, and from a single standalone satellite conception to a .... (complete with something smart :p).
+  \item % c) What are the main mission architectures of distributed space systems according to inter-satellite distance and required control accuracy?
+    The key differences between historic, contemporary, and future distributed space systems are that historically, misions where generously founded, ment for short duration, and control was always made from gound (no autonomous navigation). Nowadays missions are ment to be long-duration, cost-efficient and autonomous. Future distributed space system will tend towards miniaturization and standarizartion, using off the shell hardware and easily replacesable technology in order to keep on track with a fast technological development. So we can say that we are going from big and expensive to small and cost-effective, from ground-control to autonomous, and from a single standalone satellite conception to a distributed system paradigm.
 
-  \item Past distributed space system missions:
+  \item %d) Name at least 2 past and 2 upcoming missions based on distributed space systems and identify their main objectives 
+    Past distributed space system missions:
     \begin{enumerate}[label=\arabic*., series=pregunta4]
       \setlist[enumerate]{resume}
       \item Apollo mission with its lunar module docking manouver.
@@ -48,7 +54,8 @@
       \item Earth observations constellations using low-earth orbit satellite which would communicate between themselves in order to achive earth observations objective, solve communications downlink bottle-necks, distributed fuel consumption to maintain optimar constellation shape.
     \end{enumerate}
 
-  \item Tipical fuel-use drivers are:
+  \item % e)What are the typical fuel-use drivers in distributed space systems?
+    Tipical fuel-use drivers are:
   \begin{itemize}
     \item Mission requirements.
     \item Initial conditions
@@ -57,7 +64,8 @@
     \item Dynamical process noise
   \end{itemize}
 
-  \item Formation control strategies:
+  \item % f) What are the typical fuel-use drivers in distributed space systems?
+    Formation control strategies:
   \begin{itemize}
     \item Proportional-derivative
     \item Linear quadratic regulation
@@ -65,9 +73,11 @@
     \item Lyapunov
   \end{itemize}
 
-  \item The most common formation control strategy used in practice is using thrusting schemes because they are reliable and can be accurately calculated on ground. 
+  \item % g) What is the most common formation control strategy used in practice? Why?
+    The most common formation control strategy used in practice is using thrusting schemes because they are reliable and can be accurately calculated on ground. 
 
-  \item blabla
+  \item % h) What are the relative navigation approaches adopted in the PRISMA technology demonstration mission?
+    The negative navigation approaches adopted in the PRISMA mission are:
     \begin{itemize}
       \item Vision Based navigation.
       \item Autonomous formation flying. 
@@ -226,7 +236,35 @@
 \end{enumerate}
 
 \section{Questions 2.2}
+\begin{enumerate}[label=\emph{\alph*)}]
+  \item %a) Describe two possible ways to simulate numerically the relative motion between formation-flying spacecraft including perturbations
+    One way is to numerically integrate the dynamics of each spacecraft and then compute the difference. Another way is to write de dynamic equation in terms of diferential position or diferential orbital elements, and numerically integrate those variables. This second aproach require knowing the solution to the equation of motion for one of the spacecraft, called the chief spacecraft.
 
+  \item %b) Describe two possible ways to compute the relative position and velocity of formation-flying spacecraft in the RTN frame
+    Relative position and velocity can be compute directy by diferenciating the position and velocity of each spacecraft, both expressed in the same frame. Another way is by direcly solving the relative equation of motion, generally expressed in the chief's centered RTN fram.
+  \item %c) What are mean and osculating orbit elements? Why are mean orbit elements useful? How can we convert from osculating to mean orbit elements? And from mean to osculating orbit elements?
+    Osculation orbital elements are the orbital elements corresponding to the instantaneus position and velocity, slution of the non-homogenious kepler equations. Mean orbital elements are obtain from osculating elements using the averaging theory (averaging through a whole orbit). It is often convenient to specify the initial conditions of the satellite orbit though the mean orbital elements, since the formation design/control is tipically done using this parameters. Mean orbital elements canbe transform to osculating orbital elements (and then to position and velocity) via the Brower Theory.
+
+  \item %d) What are the assumptions behind the nonlinear equations of relative motion? Describe the meaning of the left and right hand side of the equations.
+    No assumptions are made when developing the non-linear equations of relative motion. The left hand terms represent the inertial acceleration of the relative position vector. The right hand side stands for the diference gravitational force between both spacecrafts.
+
+  \item %e) Do they admit a closed-form solution, in what state representation? Do they admit equilibria, which ones?
+    For non-constant angular velocity $\ddot{\theta_0} \neq 0$, non-linear equations of relative motion admit a single relative equilibrium at $x=y=z=0$ (chief and deputy are in the same position).They do no admit a close a closed-form solution in any state representation.
+  \item %f) What is commensurability and why is it important for formation-flying? How do we derive the energy matching condition and what can be used for?
+    Two elliptic orbits are commensurable if their periods $T_1$ and $T_2$ follow the relation:
+    \[ \frac{T_1}{T_2}=\frac{m}{n} \qquad \mathrm{with}~m,n~\epsilon~\mathbb{E}\]
+    this is related with the orbit energy through the follow equation:
+    \[ T = \frac{\pi\mu}{\sqrt{2(-\mathcal{E})^{3}}}\qquad \rightarrow \qquad \frac{\mathcal{E}_2}{\mathcal{E}_1}=\left( \frac{m}{n}\right)^{3/2} \]
+    Orbit commnesurability can be use to obtain a simple algebraic constrain on initial conditions which guaranteed bounded relative orbits.
+  \item %g) What are the key simplifications of the equations of relative motion when considering a circular reference orbit? What are the new equilibria? Show that they are consistent with the energy matching condition. What is libration?
+    Considering a circular chief's orbit, the following simplifications can be done: $\dot{\theta_0}=n_0$, $\ddot{\theta_0}=0$ and $r_0=a_0=cte$. This leads two a new equilibrium condition given by:
+    \[ z = 0,~(x+a_0)^2+y^2 = a_0^2\]
+    This means that the deputy is in the exact same orbit that the chiefs, but with a different value of $f$. As the orbits have the same semi-mayor axis $a_0$, the energy mathching condition is satisfy. From a dynamical systems perspective, small perturbations near equilibria generate periodic orbits about the equilibria. This periodic motion is called ``libration''.
+
+  \item %h) What are the key simplifications of the equations of relative motion when considering a circular orbit and small separations of the co-orbiting spacecraft as compared with the orbit radius? What are the assumptions behind the HCW equations? How are they derived? What characteristics make the HCW equations linear and decoupled? What are the new equilibria? Are the consistent with previous findings and the energy matching condition?
+    When a small separation between spacecrafts is considered in addition to the circular orbit simplification, the equations of motion can be linearize about the origin of the chief-fixed frame, obtaining the HCW equations. This is done expanding the right-hand side of the equations into a Taylor series about the origin and retaining first terms only. The equations obtain have the out-of-plane$(z)$ motion decoupled from the in-plane motion $(x,y)$. The new equilibria condition is obtain by forcing $x=z=0$. This means that the deputy is located aligned with the along-track direction of the chief spacecraft. This conditions is due to the linearization, in which the circular orbit was aproximated by the tangent in the chiefs centered frame. This conditions does not satisfy the energy mathching condition, because $a$ is not the same for both spacecrafts.
+
+\end{enumerate}
 \section{Questions 3.1}
 
 \begin{enumerate}[label=\emph{\alph*)}]
@@ -479,7 +517,8 @@
 
 \section{Questions 5.2}
 \begin{enumerate}[label=\emph{\alph*)}]
-  \item The key metrology systems used for spacecraft formation-flying and rendezvous are:
+  \item % a) List some key metrology systems used for spacecraft formation-flying and rendezvous.
+    The key metrology systems used for spacecraft formation-flying and rendezvous are:
     \begin{itemize}
       \item Gyrometer Assembly: provides angular rates for attitude determination.
       \item Accelerometer Assembly: monitors ATV boosts.
@@ -491,15 +530,18 @@
       \item Vision-based systems.
     \end{itemize}
 
-  \item We could need relative navigations for any mision involving two spacecraft, independently of the existance of a automatic control system. We could use relative navigation to improbe orbit determination and better plan future manouvers (no need to be automatize).
+  \item % b) Why do we need relative navigation? Is it always to serve the needs of an automatic control system?
+    We could need relative navigations for any mision involving two spacecraft, independently of the existance of a automatic control system. We could use relative navigation to improbe orbit determination and better plan future manouvers (no need to be automatize).
 
-  \item The two basic methods for relative/absolute orbit determination are:
+  \item % c) What are the two basic processing methods for absolute/relative orbit determination? Which are more suited to on-board and on-ground implementation? Advantages and disadvantage? Why don’t we usually use deterministic methods?
+    The two basic methods for relative/absolute orbit determination are:
     \begin{itemize}
       \item Sequential estimation, where a new estimate of the state vector is obtained after each obsevation, suited for on board implementation. This method converge more quickly at the cost of stability. Also, it is more sensitive to bad lectures.
       \item Batch estimation, where all observations are processed and combined to obtain a single update state vector. This method is best suited for an on-ground implementations, where the state vector can be less frequently updated.
     \end{itemize}
   
-  \item Deterministic methods are not use because they are no able to account for uncertainties and include more state parameters.(But why?)
+  \item % d) What is the most common filter used for on-board navigation? What are the assumptions behind this filter? What is the difference between the time and measurement udpates? What are the key ingredients necessary to implement the filter?
+    Deterministic methods are not use because they are no able to account for uncertainties and include more state parameters.(But why?)
 
   \item The most common filter used for on-board navigation is the Kalman Filter, which relays on the assumption that meassurements are unbiased and timewise uncorrelated (meassurement error in time $T+1$ is not affected by meassurement in time $T$. Time updates of both the state vector and covariance matices is done using a propagation matrix $\Phi$ based in the linearization of the dinamic equations. $\Phi$ is calculated based on the state values of the previos time. Measurement update are done comparing new measurements with estimated measurements based on previos measurements propagated through time. The merge between propagated measurements and new measurements is done using the gain matrix $K$, calculated from the correlation matrix propagated, the uncertainty matrix of the meassurements, and the partial derivative of the measurement to state vector matrix $H$. The key ingrediants of this filter are:
     \begin{itemize}
@@ -520,6 +562,11 @@
 
   \item In order to compute the relative position and velocity in the RTN frame directly from the ECEF data is:
 \end{enumerate}
+
+\section{Questions 6.1}
+
+\section{Questions 6.2}
+
 
 
 \end{document}
