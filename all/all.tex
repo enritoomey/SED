@@ -23,13 +23,13 @@
     The main three application areas of distributed space system are:
   \begin{itemize}
     \item Space Science (Solar system exploration, Astronomical search of origins)
-    \item Planetary science (synthetic aperture radar interferometru, gravity mapping, etc.)
-    \item Technology (On orbit servicing and assembly, Humman exploration technology)
+    \item Planetary science (synthetic aperture radar interferometry, gravity mapping, etc.)
+    \item Technology (On orbit servicing and assembly, human exploration technology)
   \end{itemize}
   One key specific aplication where breakthroughts are expected in the near future is space debris elimination.
 
   \item % b)What are the main mission architectures of distributed space systems according to inter-satellite distance and requiredcontrol accuracy?
-    We can distinguish four different distributed space system's  mission architectures according to the inter-satellite distance adn required control accuracy:
+    We can distinguish four different distributed space system's  mission architectures according to the inter-satellite distance and required control accuracy:
   \begin{itemize}
     \item In the lowest inter-satellite distance and highest accuracy required, we have Rendezvous and docking.
     \item In the largest inter-satellite distance and least accuracy required we have constellations, such as GNPS.
@@ -38,7 +38,7 @@
   \end{itemize}
 
   \item % c) What are the main mission architectures of distributed space systems according to inter-satellite distance and required control accuracy?
-    The key differences between historic, contemporary, and future distributed space systems are that historically, misions where generously founded, ment for short duration, and control was always made from gound (no autonomous navigation). Nowadays missions are ment to be long-duration, cost-efficient and autonomous. Future distributed space system will tend towards miniaturization and standarizartion, using off the shell hardware and easily replacesable technology in order to keep on track with a fast technological development. So we can say that we are going from big and expensive to small and cost-effective, from ground-control to autonomous, and from a single standalone satellite conception to a distributed system paradigm.
+    The key differences between historic, contemporary, and future distributed space systems are that historically, misions were generously founded, ment for short duration, and control was always made from gound (no autonomous navigation). Nowadays missions are ment to be long-duration, cost-efficient and autonomous. Future distributed space system will tend towards miniaturization and standarizartion, using off the shell hardware and easily replaceable technology in order to keep on track with a fast technological development. So we can say that we are going from big and expensive to small and cost-effective, from ground-control to autonomous, and from a single standalone satellite conception to a distributed system paradigm.
 
   \item %d) Name at least 2 past and 2 upcoming missions based on distributed space systems and identify their main objectives 
     Past distributed space system missions:
@@ -50,8 +50,8 @@
 
     Upcomming missions:
     \begin{enumerate}[resume*=pregunta4]
-      \item New world observatory: use un combination a telescope satellite and a shield satellite which will cast the shadow of a star to the telescope, making the second one able to watch planets around the star, that they would be otherwise obscured by the star ligth.
-      \item Earth observations constellations using low-earth orbit satellite which would communicate between themselves in order to achive earth observations objective, solve communications downlink bottle-necks, distributed fuel consumption to maintain optimar constellation shape.
+      \item New world observatory: use a combination of a telescope satellite and a shield satellite which will cast the shadow of a star to the telescope, making the second one able to watch planets around the star, that they would be otherwise obscured by the star ligth.
+      \item Earth observations constellations using low-earth orbit satellite which would communicate between themselves in order to achive earth observations objective, solve communications downlink bottle-necks, distributed fuel consumption to maintain optimal constellation shape.
     \end{enumerate}
 
   \item % e)What are the typical fuel-use drivers in distributed space systems?
@@ -77,7 +77,7 @@
     The most common formation control strategy used in practice is using thrusting schemes because they are reliable and can be accurately calculated on ground. 
 
   \item % h) What are the relative navigation approaches adopted in the PRISMA technology demonstration mission?
-    The negative navigation approaches adopted in the PRISMA mission are:
+    The relative navigation approaches adopted in the PRISMA mission are:
     \begin{itemize}
       \item Vision Based navigation.
       \item Autonomous formation flying. 
@@ -539,11 +539,10 @@
       \item Sequential estimation, where a new estimate of the state vector is obtained after each obsevation, suited for on board implementation. This method converge more quickly at the cost of stability. Also, it is more sensitive to bad lectures.
       \item Batch estimation, where all observations are processed and combined to obtain a single update state vector. This method is best suited for an on-ground implementations, where the state vector can be less frequently updated.
     \end{itemize}
-  
-  \item % d) What is the most common filter used for on-board navigation? What are the assumptions behind this filter? What is the difference between the time and measurement udpates? What are the key ingredients necessary to implement the filter?
-    Deterministic methods are not use because they are no able to account for uncertainties and include more state parameters.(But why?)
+  Deterministic methods are not use because they are no able to account for uncertainties and include more state parameters.(But why?)
 
-  \item The most common filter used for on-board navigation is the Kalman Filter, which relays on the assumption that meassurements are unbiased and timewise uncorrelated (meassurement error in time $T+1$ is not affected by meassurement in time $T$. Time updates of both the state vector and covariance matices is done using a propagation matrix $\Phi$ based in the linearization of the dinamic equations. $\Phi$ is calculated based on the state values of the previos time. Measurement update are done comparing new measurements with estimated measurements based on previos measurements propagated through time. The merge between propagated measurements and new measurements is done using the gain matrix $K$, calculated from the correlation matrix propagated, the uncertainty matrix of the meassurements, and the partial derivative of the measurement to state vector matrix $H$. The key ingrediants of this filter are:
+  \item % d) What is the most common filter used for on-board navigation? What are the assumptions behind this filter? What is the difference between the time and measurement udpates? What are the key ingredients necessary to implement the filter?
+  The most common filter used for on-board navigation is the Kalman Filter, which relays on the assumption that meassurements are unbiased and timewise uncorrelated (meassurement error in time $T+1$ is not affected by meassurement in time $T$. Time updates of both the state vector and covariance matices is done using a propagation matrix $\Phi$ based in the linearization of the dinamic equations. $\Phi$ is calculated based on the state values of the previos time. Measurement update are done comparing new measurements with estimated measurements based on previos measurements propagated through time. The merge between propagated measurements and new measurements is done using the gain matrix $K$, calculated from the correlation matrix propagated, the uncertainty matrix of the meassurements, and the partial derivative of the measurement to state vector matrix $H$. The key ingrediants of this filter are:
     \begin{itemize}
       \item Dynamical model.
       \item Measurement model.
@@ -553,14 +552,27 @@
       \item Loss function to be minimized.
     \end{itemize}
 
-  \item The main change in the filter due to a change in the measurements type would be in the measurement model $h$ and the partial derivatives of the measurements with respect to the state vector, $H$. For example:
+  \item % e) What is the main change in the implementation of the filter if we change measurement types? Show examples for GNSS and optical navigation?
+    %The main change in the filter due to a change in the measurements type would be in the measurement model $h$ and the partial derivatives of the measurements with respect to the state vector, $H$. For example:
     
-  \item The goal of TAFF system is to determine the micro-thruster commands in order to keep correct fly formation in the orbit intrack-radial plane (orbit plane) using navegation data from GNSS, and to provide the rest of the system predicted minimim separation and relative position and velocity. TAFF also handles ground planned maneuvers for absolute orbit control, which are used to better propagate meassurements, and to assure no overlaping between both controls.
-  \item The state representation for the relative motion used are the relative osculating orbit parameters (in fact, due to the close position of both spacecraft, we can assume without much error that mean and osc. relative orbit elements are similar).
-    $write state representation vector$\\
+  \item % f) What is the goal of the TanDEM-X Autonomous Formation Flying (TAFF) system?
+    The goal of TAFF system is to determine the micro-thruster commands in order to keep correct fly formation in the orbit intrack-radial plane (orbit plane) using navegation data from GNSS, and to provide the rest of the system predicted minimim separation and relative position and velocity. TAFF also handles ground planned maneuvers for absolute orbit control, which are used to better propagate meassurements, and to assure no overlaping between both controls.
+
+  \item % g) What state representation for the relative motion is used? What measurements are used by the observer? What perturbations are taken into account in observer and controller?
+    The state representation for the relative motion used are the relative osculating orbit parameters (in fact, due to the close position of both spacecraft, we can assume without much error that mean and osc. relative orbit elements are similar).
+    \[\Phi(t,t_0) = \left( \frac{\partial \Delta \alpha{t}}{\partial \Delta \alpha(t_0)}\right) = 
+    \left( \begin{array}{c c c c c c} 1 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 1 & -\dot{\varphi}(t-t_0) & 0 & 0 & 0 \\
+      0 & \dot{\varphi(t-t_0)} & 1 & 0 & 0 & 0  \\
+      0 & 0 & 0 & 1 & 0 & 0 \\
+      0 & 0 & 0 & 3\gamma\sin^2{i}\cdot(u-u_0) & 1 & 0 \\
+      -\frac{3}{2} & 0 & 0 & -12\gamma\sin{2i}(u-u_0) & 0 & 1   
+  \end{array} \right)\]
     The observer measures relative position and velocity (measured and express in the ECEF frame). The perturbations taken into account are $J_2$ secular perturbations, throuth the $3\gamma\sin{i}^2$, $-12\gamma \sin{2i}$ and $\dot{\phi}$ terms in the transition matrix $\Phi=\frac{\partial \Delta \alpha (t)}{\partial \Delta \alpha (t_0)}$.
 
-  \item In order to compute the relative position and velocity in the RTN frame directly from the ECEF data is:
+  \item % h) What is the most efficient way to compute the relative position and velocity in the RTN frame from absolute position and velocity in ECEF as from two co-orbiting GPS receivers? Provide formulas and explain.
+  %  In order to compute the relative position and velocity in the RTN frame directly from the ECEF data is:
+
 \end{enumerate}
 
 \section{Questions 6.1}
